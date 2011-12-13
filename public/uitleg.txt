@@ -1,0 +1,39 @@
+Structuur
+---------
+hoofdfolder : public
+startpunt : index.php
+    require_once("../includes/initialize.php")
+    functie include_layout_template('header.php')
+    haalt fotos op en toont ze
+    functie include_layout_template('footer.php')
+
+layout includes (via functie include_layout_template) : public/layouts
+    admin_header.php
+    admin_footer.php
+    header.php
+    footer.php
+
+include folder : includes
+initialize.php
+    bepaal paths
+    laad alle classes in van includes folder zodat je deze kan gebruiken
+    // load config file first : hostname - user - pw
+    require_once(LIB_PATH.DS.'config.php')
+
+    // load basic functions next so that everything after can use them
+    require_once(LIB_PATH.DS.'functions.php')
+
+    // load core objects
+    require_once(LIB_PATH.DS.'session.php')
+    require_once(LIB_PATH.DS.'database.php')
+    require_once(LIB_PATH.DS.'database_object.php')
+    require_once(LIB_PATH.DS.'pagination.php')
+
+    // load database-related classes
+    require_once(LIB_PATH.DS.'user.php')
+    require_once(LIB_PATH.DS.'photograph.php')
+    require_once(LIB_PATH.DS.'comment.php')
+
+database.php : class MySQLDatabase
+    
+    
